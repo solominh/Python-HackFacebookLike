@@ -58,15 +58,14 @@ def like_a_post(driver, url):
     except Exception as e:
         print('Like button not found')
 
-link_to_like = 'https://www.facebook.com/photo.php?fbid=871123139735797&set=a.871123186402459.1073741826.100005143570218&type=3'
-
 
 def main(url_to_like, accounts_filepath='./accounts.txt'):
     accounts = load_accounts(accounts_filepath)
     for account in accounts:
         driver = login(account)
         like_a_post(driver, url_to_like)
-        time.sleep(3)
+        time.sleep(2)
+        driver.quit()
 
 
 if __name__ == "__main__":
