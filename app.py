@@ -45,7 +45,11 @@ def login(account):
 def like_a_post(driver, url):
     driver.get(url)
     try:
-        like_button_xpath = '//*[@id="fbPhotoSnowliftFeedback"]/div/div[1]/div/div/div/div/span[1]/div/a'
+        # Post link path
+        like_button_xpath = '//form/div[1]/div/div/div/div/div/span[1]/div/a' 
+        # Post popup path
+        # like_button_xpath2 = '//*[@id="fbPhotoSnowliftFeedback"]/div/div[1]/div/div/div/div/span[1]/div/a'
+
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, like_button_xpath)))
 
