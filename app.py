@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -32,12 +33,13 @@ def login(account):
     # Find elements
     email_input = driver.find_element_by_id('email')
     password_input = driver.find_element_by_id('pass')
-    sign_in_button = driver.find_element_by_id('u_0_l')
+    # sign_in_button = driver.find_element_by_id('u_0_l')
 
     # Login
     email_input.send_keys(account['email'])
     password_input.send_keys(account['password'])
-    sign_in_button.click()
+    password_input.send_keys(Keys.RETURN)
+    # sign_in_button.click()
 
     return driver
 
@@ -46,7 +48,7 @@ def like_a_post(driver, url):
     driver.get(url)
     try:
         # Post link path
-        like_button_xpath = '//form/div[1]/div/div/div/div/div/span[1]/div/a' 
+        like_button_xpath = '//form/div[1]/div/div/div/div/div/span[1]/div/a'
         # Post popup path
         # like_button_xpath2 = '//*[@id="fbPhotoSnowliftFeedback"]/div/div[1]/div/div/div/div/span[1]/div/a'
 
